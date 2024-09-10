@@ -1,5 +1,5 @@
 import s from "./Options.module.css";
-const Options = ({ onUpdate, reset }) => {
+const Options = ({ totalFeedback, onUpdate, reset }) => {
   return (
     <div className={s.wrapper}>
       <button className={s.btn} onClick={() => onUpdate("good")}>
@@ -11,9 +11,14 @@ const Options = ({ onUpdate, reset }) => {
       <button className={s.btn} onClick={() => onUpdate("bad")}>
         bad
       </button>
-      <button className={s.btn} onClick={() => reset()}>
-        reset
-      </button>
+
+      {totalFeedback ? (
+        <button className={s.btn} onClick={() => reset()}>
+          reset
+        </button>
+      ) : (
+        <></>
+      )}
     </div>
   );
 };
